@@ -127,9 +127,11 @@ class TicTacToeGame {
         this.resetButton = document.getElementById('resetGame');
         this.correctionDisplay = document.getElementById('correctionDisplay');
         this.correctionText = document.getElementById('correctionText');
+        this.switchPlayerButton = document.getElementById('switchPlayer');
 
         // Event listeners
         this.resetButton.addEventListener('click', () => this.resetGame());
+        this.switchPlayerButton.addEventListener('click', () => this.switchCurrentPlayer());
 
         // Add tracking for used misconceptions
         this.usedMisconceptions = new Set();
@@ -326,6 +328,11 @@ class TicTacToeGame {
 
     resetGame() {
         this.initializeGame();
+    }
+
+    switchCurrentPlayer() {
+        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
+        this.updatePlayerDisplay();
     }
 }
 
